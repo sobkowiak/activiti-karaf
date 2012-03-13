@@ -4,7 +4,7 @@
   # [http://code.google.com/p/activiti-karaf/downloads/list Download] distribution archive
   # Unzip the downloaded file to some location (e.g c:/demo)
     * _note: if unzip tool prompts for overwrite files, ignore_
-  # Install [ActRequiredSoftware Required Software]
+  # Install [RequiredSoftware Required Software]
   # Start Activiti Karaf - _cd to bin directory in unziped folder and execute *karaf*_
 {{{
 C:\demo\activiti-karaf-dist-1.0.0-SNAPSHOT\bin>karaf
