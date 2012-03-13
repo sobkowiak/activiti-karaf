@@ -1,4 +1,5 @@
 #summary Karaf CLI commands for Activiti BPMN management
+#labels Featured
 
 <wiki:toc max_depth="3" />
 
