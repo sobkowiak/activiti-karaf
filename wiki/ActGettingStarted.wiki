@@ -21,11 +21,14 @@ Hit '<ctrl-d>' or 'osgi:shutdown' to shutdown Activiti Karaf.
 
 karaf@root> 
 }}}
+  #Access Activiti Web tools
+    #Open Activiti Modeler - [http://localhost:8181/activiti-modeler]
+    #Open Activiti Explorer - [http://localhost:8181/activiti-modeler]
+      # use kermit/kermit as username/password
+  #Build, deploy and run Example
+    * Use Activiti Modeler to create BPMN process and deploy from Activiti Explorer 
   # Run [ActCLI Activiti CLI] commands
 {{{
 karaf@root> act:list
 }}}
-  # Run Web Tools
-  # Open Activiti Modeler
-  # Open Activiti Explorer
-  # Deploy Example
+  # Build, deploy and run example using maven
