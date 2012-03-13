@@ -25,7 +25,7 @@ karaf@root>
 }}}
   # Access Activiti Web tools
     # Open Activiti Modeler - [http://localhost:8181/activiti-modeler]
-    # Open Activiti Explorer - [http://localhost:8181/activiti-modeler]
+    # Open Activiti Explorer - [http://localhost:8181/activiti-explorer]
       * _use kermit/kermit as username/password_
   # Build, deploy and run Example
     * Use Activiti Modeler to create BPMN process and deploy from Activiti Explorer 
