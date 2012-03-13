@@ -1,4 +1,5 @@
 #summary Download and play!!
+#labels Featured
 
   # [http://code.google.com/p/activiti-karaf/downloads/list Download] distribution archive
   # Unzip the downloaded file to some location (e.g c:/demo)
