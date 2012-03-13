@@ -29,7 +29,7 @@ karaf@root>
       * _use kermit/kermit as username/password_ for login
   # Build, deploy and run Example
     * Use Activiti Modeler to create BPMN process and deploy from Activiti Explorer 
-  # Run [ActCLI Activiti CLI] commands
+  # Run [ActivitiCLI Activiti CLI] commands
 {{{
 karaf@root> act:list
 }}}
