@@ -1,0 +1,36 @@
+#summary Download and play!!
+#labels Featured
+
+  # [http://code.google.com/p/activiti-karaf/downloads/list Download] distribution archive
+  # Unzip the downloaded file to some location (e.g c:/demo)
+    * _note: if unzip tool prompts for overwrite files, ignore_
+  # Install [ActRequiredSoftware Required Software]
+  # Start Activiti Karaf - _cd to bin directory in unziped folder and execute *karaf*_
+{{{
+C:\demo\activiti-karaf-dist-1.0.0-SNAPSHOT\bin>karaf
+                   _   _       _ _   _
+         /\       | | (_)     (_) | (_)
+        /  \   ___| |_ ___   ___| |_ _
+       / /\ \ / __| __| \ \ / / | __| |
+      / ____ \ (__| |_| |\ V /| | |_| |
+     /_/    \_\___|\__|_| \_/ |_|\__|_|
+
+  Activiti Karaf (1.0.0-SNAPSHOT)
+
+Hit '<tab>' for a list of available commands
+and '[cmd] --help' for help on a specific command.
+Hit '<ctrl-d>' or 'osgi:shutdown' to shutdown Activiti Karaf.
+
+karaf@root> 
+}}}
+  # Access Activiti Web tools
+    # Open Activiti Modeler - [http://localhost:8181/activiti-modeler]
+    # Open Activiti Explorer - [http://localhost:8181/activiti-explorer]
+      * _use kermit/kermit as username/password_ for login
+  # Build, deploy and run Example
+    * Use Activiti Modeler to create BPMN process and deploy from Activiti Explorer 
+  # Run [ActCLI Activiti CLI] commands
+{{{
+karaf@root> act:list
+}}}
+  # Build, deploy and run example using maven
