@@ -28,7 +28,7 @@ karaf@root>
     # Open Activiti Explorer - [http://localhost:8181/activiti-explorer]
       * use _kermit/kermit_ as _username/password_ for login
   # Build, deploy and run Example
-    * Use Activiti Modeler to create BPMN process and deploy from Activiti Explorer 
+    * Use Activiti Modeler to create BPMN process - consists of _start -> script task -> end_ , save it and use Activiti Explorer to upload the file and deploy (browse to the bpmn file saved under ${install-root}/activiti-repo)  
   # Run [ActivitiCLI Activiti CLI] commands
 {{{
 karaf@root> act:list
