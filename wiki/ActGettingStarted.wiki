@@ -1,7 +1,14 @@
-#summary Getting Started with download and play!!
-
-  # Download distribution archive
-  # Unzip the downloaded file some location (e.g c:/demo)
+#summary Download and play!!
+  # Required Software
+    * *For Running Activiti Karaf*
+      * Java SE Development Kit 1.5.x or greater ([(http://www.oracle.com/technetwork/java/javase/])
+        *The JAVA_HOME environment variable must be set to the directory where the JDK is installed.
+    * *For Building and running the examples*
+      * Java SE Development Kit 1.5.x or greater ([(http://www.oracle.com/technetwork/java/javase/])
+        *The JAVA_HOME environment variable must be set to the directory where the JDK is installed.
+      * Apache Maven 3.0.3 - ([http://archive.apache.org/dist/maven/binaries/])
+  # [http://code.google.com/p/activiti-karaf/downloads/list Download] distribution archive
+  # Unzip the downloaded file to some location (e.g c:/demo)
     * _note: if unzip tool prompts for overwrite files, ignore_
   # Start Activiti Karaf - cd to bin directory in unziped folder
 {{{
@@ -24,7 +31,7 @@ karaf@root>
   #Access Activiti Web tools
     #Open Activiti Modeler - [http://localhost:8181/activiti-modeler]
     #Open Activiti Explorer - [http://localhost:8181/activiti-modeler]
-      # use kermit/kermit as username/password
+      * _use kermit/kermit as username/password_
   #Build, deploy and run Example
     * Use Activiti Modeler to create BPMN process and deploy from Activiti Explorer 
   # Run [ActCLI Activiti CLI] commands
