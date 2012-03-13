@@ -17,7 +17,7 @@
   # Deploying 
     * cd to _${karaf.home}/sources/activiti-karaf-examples/hello-activiti-bundle/target_
     * copy hello-activiti-bundle-1.0.0-SNAPSHOT.jar to deploy directory of the runtime (copy hello-activiti-bundle-1.0.0-SNAPSHOT.jar ${karaf.home}/deploy
-  # Running - from the karaf console 
+  # Running - from the karaf console - Not working - there is some issue which prevents it to execute java service task. This was working previously.
 {{{
 karaf@root> list
 ...
@@ -44,7 +44,5 @@ Active BPMN Process Instances
 -----------------------------
 No Active BPMN Process Instances Found.
 
-karaf@root> act:start Hello:1:14
+karaf@root> act:start Hello:1:14 
 }}}
-
-
