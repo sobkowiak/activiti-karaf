@@ -2,5 +2,49 @@
 
   # Install [RequiredSoftware Required Software] for building code
   # Building 
+    # cd to ${karaf.home}/_sources/activiti-karaf-examples_
+    # build the maven projects - execute _mvn clean install_
+{{{
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO]
+[INFO] activiti-karaf-examples ........................... SUCCESS [1.247s]
+[INFO] activiti-karaf-examples/hello-activiti-bundle ..... SUCCESS [56.137s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+}}}
   # Deploying 
-  # Running 
+    * cd to _${karaf.home}/sources/activiti-karaf-examples/hello-activiti-bundle/target_
+    * copy hello-activiti-bundle-1.0.0-SNAPSHOT.jar to deploy directory of the runtime (copy hello-activiti-bundle-1.0.0-SNAPSHOT.jar ${karaf.home}/deploy
+  # Running - from the karaf console 
+{{{
+karaf@root> list
+...
+...
+[ 146] [Active     ] [            ] [Started] [   60] activiti-karaf-examples/hello-activiti-bundle (1.0.0.SNAPSHOT)
+
+karaf@root> act:list
+
+BPMN Deployments
+----------------
+ ID   Name                               Deployment Time
+[10 ][org.activiti.karaf.examples.hello][Mar 13, 2012 1:09:28 AM]
+
+BPMN Process Definitions
+-------------------------
+ Definition  Name   Ver  Resource
+[Hello:1:14][hello][1  ][OSGI-INF/activiti/hello.bpmn20.xml]
+
+History of BPMN Process Instances
+---------------------------------
+No History on BPMN Processes.
+
+Active BPMN Process Instances
+-----------------------------
+No Active BPMN Process Instances Found.
+
+karaf@root> act:start Hello:1:14
+}}}
+
+
