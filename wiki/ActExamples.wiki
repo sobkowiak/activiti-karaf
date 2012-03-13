@@ -1,6 +1,0 @@
-#summary Examples
-
-  # Install [ActRequiredSoftware Required Software] for building code
-  # Building 
-  # Deploying 
-  # Running 
