@@ -1,0 +1,10 @@
+#summary Frequently Asked Questions.
+#labels Featured
+
+  # What is the url for activiti modeler web app
+    * [http://localhost:8181/activiti-modeler]
+  # Where is my activiti modeler repository
+    * it is "activiti-repo" folder under the installation root 
+  # What is the url for activiti explorer web app
+    * [http://localhost:8181/activiti-explorer]
+  # How to change activiti jdbc data source configuration
