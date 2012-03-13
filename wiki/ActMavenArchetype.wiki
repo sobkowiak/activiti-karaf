@@ -1,0 +1,7 @@
+#summary Maven Archetype for creating Activiti BPMN maven project
+
+= Introduction =
+
+= Building Maven Archetype =
+
+= How to use it =
