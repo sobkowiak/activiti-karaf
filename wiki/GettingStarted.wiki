@@ -27,10 +27,39 @@ karaf@root>
     # Open Activiti Modeler - [http://localhost:8181/activiti-modeler]
     # Open Activiti Explorer - [http://localhost:8181/activiti-explorer]
       * use _kermit/kermit_ as _username/password_ for login
-  # Build, deploy and run Example
-    * Use Activiti Modeler to create BPMN process - consists of _start -> script task -> end_ , save it and use Activiti Explorer to upload the file and deploy (browse to the bpmn file saved under ${install-root}/activiti-repo)  
+  # Build, deploy and run Examples
+    * Three examples for Activiti Explorer were pre-deployed. Use the activiti explorer to run these examples.
+    * You can use Activiti Modeler to create a BPMN process and then use the Activiti Explorer to deploy and run the process.
+      * For example, from Activiti Modeler, create a simple process that _start -> script task -> end_ , and configure the script task to use groovy and add script that prints some message (e.g. system.out.println("Hello World!!");). When you save the process, the process bpmn xml will be saved under ${install.root}/activiti-repo.
+      * Open Activiti Explorer to upload and deploy the bpmn process that is saved from the modeler.  
+  # Build, deploy and run example using maven
+    * See [Examples Examples] to build, deploy and run hello process 
   # Run [ActivitiCLI Activiti CLI] commands
 {{{
 karaf@root> act:list
+
+BPMN Deployments
+----------------
+ ID   Name            Deployment Time
+[10 ][Demo processes][Mar 14, 2012 11:00:13 PM]
+
+BPMN Process Definitions
+-------------------------
+ Definition ID               Name                     Ver  Resource
+
+[createTimersProcess:1:15  ][Create timers process  ][1  ][org/activiti/explorer/demo/process/createTimersProcess.bpmn20
+.xml]
+[simpleApprovalProcess:1:16][Simple approval process][1  ][org/activiti/explorer/demo/process/testProcess.bpmn20.xml
+    ]
+[oneTaskProcess:1:17       ][Famous One Task Process][1  ][org/activiti/explorer/demo/process/oneTaskProcess.bpmn20.xml
+    ]
+
+History of BPMN Process Instances
+---------------------------------
+No History on BPMN Processes.
+
+Active BPMN Process Instances
+-----------------------------
+No Active BPMN Process Instances Found.
+karaf@root>
 }}}
-  # Build, deploy and run example using maven
