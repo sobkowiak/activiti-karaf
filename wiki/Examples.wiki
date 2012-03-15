@@ -2,7 +2,7 @@
 
   # Install [RequiredSoftware Required Software] for building code
   # Building 
-    # cd to ${karaf.home}/_sources/activiti-karaf-examples_
+    # cd to _${install.root}/sources/activiti-karaf-examples_
     # build the maven projects - execute _mvn clean install_
 {{{
 [INFO] ------------------------------------------------------------------------
@@ -15,9 +15,9 @@
 [INFO] ------------------------------------------------------------------------
 }}}
   # Deploying 
-    * cd to _${karaf.home}/sources/activiti-karaf-examples/hello-activiti-bundle/target_
-    * copy hello-activiti-bundle-1.0.0-SNAPSHOT.jar to deploy directory of the runtime (copy hello-activiti-bundle-1.0.0-SNAPSHOT.jar ${karaf.home}/deploy
-  # Running - from the karaf console - Not working - there is some issue which prevents it to execute java service task. This was working previously.
+    * cd to _${install.root}/sources/activiti-karaf-examples/hello-activiti-bundle/target_
+    * copy hello-activiti-bundle-1.0.0-SNAPSHOT.jar to deploy directory of the runtime (copy hello-activiti-bundle-1.0.0-SNAPSHOT.jar ${install.root}/deploy
+  # Running - from the karaf console 
 {{{
 karaf@root> list
 ...
