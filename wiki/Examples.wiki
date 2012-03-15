@@ -1,4 +1,5 @@
 #summary Examples
+#labels Featured
 
   # Install [RequiredSoftware Required Software] for building code
   # Building 
@@ -29,12 +30,12 @@ karaf@root> act:list
 BPMN Deployments
 ----------------
  ID   Name                               Deployment Time
-[10 ][org.activiti.karaf.examples.hello][Mar 13, 2012 1:09:28 AM]
+[18 ][org.activiti.karaf.examples.hello][Mar 14, 2012 11:23:17 PM]
 
 BPMN Process Definitions
 -------------------------
  Definition  Name   Ver  Resource
-[Hello:1:14][hello][1  ][OSGI-INF/activiti/hello.bpmn20.xml]
+[Hello:1:22 ][hello ][1  ][OSGI-INF/activiti/hello.bpmn20.xml ]
 
 History of BPMN Process Instances
 ---------------------------------
@@ -44,5 +45,19 @@ Active BPMN Process Instances
 -----------------------------
 No Active BPMN Process Instances Found.
 
-karaf@root> act:start Hello:1:14 
+karaf@root> act:start Hello:1:22
+
+*** Executing Print Service Task... Execution Id:[23] Activity: ServiceTaskId1[Print Service 1]
+#### Hello   ####
+
+*** Executing Print Service Task... Execution Id:[23] Activity: ServiceTaskId2[Print Service 2]
+#### World!! ####
+Process instance 23 Started
+karaf@root> act:list -h
+
+History of BPMN Process Instances
+---------------------------------
+ Definition  Ins  Start Time                End Time
+[Hello:1:22][23 ][Mar 14, 2012 11:24:11 PM][Mar 14, 2012 11:24:12 PM]
+
 }}}
