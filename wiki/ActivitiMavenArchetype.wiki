@@ -1,7 +1,24 @@
 #summary Maven Archetype for creating Activiti BPMN maven project
 
-= Introduction =
+== Introduction ==
 
-= Building Maven Archetype =
+[http://maven.apache.org/guides/introduction/introduction-to-archetypes.html Maven Archetypes] are the project templates used to create a new maven project with predefined structure and code artifacts.
 
-= How to use it =
+Activiti bpmn archetype described here can be used to create a maven project with required maven project configurations as well as a default activiti bpmn xml and related files. The maven project created with this is ready to build and deploy a sample bpmn process which developer can use to develop the process and package it as a osgi bundle for deployment into the activiti karaf container.
+
+== Building the archetypes ==
+
+Typically, the archetype will be build and deployed to a public maven repository so that maven tool can use it directly from the public repository. Since we have not yet published any artifacts from this project to the public maven repository, developers who want to use this archetype first need to build it on their development machine so that this will be available in their local maven repository.
+
+To build, cd to ${install.root}/sources/activiti-bpmn-archetype, execute the maven build command (mvn clean install)
+
+== Using the archetype to create a project ==
+
+If you have a Eclipse IDE, install m2e plugins to use maven tooling from IDE and see [http://www.sonatype.com/books/m2eclipse-book/reference/creating.html#creating-sect-m2e-create-archetype how to create a maven project from archetype].
+
+If you want to use the archetype from command line, use the [http://maven.apache.org/archetype/maven-archetype-plugin/index.html maven archetype plugin]  
+
+{{{
+C:\demo\activiti-karaf-dist-1.0.0-SNAPSHOT\sources\activiti-bpmn-archetype>mvn clean install
+
+}}}
