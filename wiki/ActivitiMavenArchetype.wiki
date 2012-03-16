@@ -35,4 +35,32 @@ If you want to use the archetype from command line, use the [http://maven.apache
 {{{
 C:\demo\test> mvn archetype:generate -B -DarchetypeGroupId=org.activiti.karaf.archetypes -DarchetypeArtifactId=activiti-b
 pmn-archetype -DarchetypeVersion=1.0.0-SNAPSHOT -DgroupId=org.examples -DartifactId=foo -Dversion=1.0.0-SNAPSHOT
+
+...
+[INFO] --- maven-archetype-plugin:2.2:generate (default-cli) @ standalone-pom ---
+[INFO] Generating project in Batch mode
+[INFO] Archetype repository missing. Using the one from [org.activiti.karaf.archetypes:activiti-bpmn-archetype:1.0.0-SNA
+PSHOT] found in catalog local
+[INFO] ----------------------------------------------------------------------------
+[INFO] Using following parameters for creating project from Archetype: activiti-bpmn-archetype:1.0.0-SNAPSHOT
+[INFO] ----------------------------------------------------------------------------
+[INFO] Parameter: groupId, Value: org.examples
+[INFO] Parameter: artifactId, Value: foo
+[INFO] Parameter: version, Value: 1.0.0-SNAPSHOT
+[INFO] Parameter: package, Value: org.examples
+[INFO] Parameter: packageInPathFormat, Value: org/examples
+[INFO] Parameter: package, Value: org.examples
+[INFO] Parameter: version, Value: 1.0.0-SNAPSHOT
+[INFO] Parameter: groupId, Value: org.examples
+[INFO] Parameter: artifactId, Value: foo
+[INFO] project created from Archetype in dir: C:\demo\test\foo
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 30.672s
+[INFO] Finished at: Thu Mar 15 15:55:58 PDT 2012
+[INFO] Final Memory: 6M/16M
+[INFO] ------------------------------------------------------------------------
+
+
 }}}
