@@ -18,9 +18,6 @@ C:\demo\activiti-karaf-dist-1.0.0-SNAPSHOT\sources\activiti-bpmn-archetype>mvn c
 
 == Using the archetype to create a project ==
 
-If you have a Eclipse IDE, install m2e plugins to use maven tooling from IDE and see [http://www.sonatype.com/books/m2eclipse-book/reference/creating.html#creating-sect-m2e-create-archetype how to create a maven project from archetype].
-
-If you want to use the archetype from command line, use the [http://maven.apache.org/archetype/maven-archetype-plugin/index.html maven archetype plugin]  
 
 === Archetype Info ===
 
@@ -30,3 +27,12 @@ The following is the Maven GAV of the activiti bpmn archetype which will be used
   * archetypeArtifactId=activiti-bpmn-archetype 
   * archetypeVersion=1.0.0-SNAPSHOT 
 
+If you have a Eclipse IDE, install m2e plugins to use maven tooling from IDE and see [http://www.sonatype.com/books/m2eclipse-book/reference/creating.html#creating-sect-m2e-create-archetype how to create a maven project from archetype].
+
+If you want to use the archetype from command line, use the [http://maven.apache.org/archetype/maven-archetype-plugin/index.html maven archetype plugin]  
+
+=== Command line usage ===
+{{{
+C:\demo\test> mvn archetype:generate -B -DarchetypeGroupId=org.activiti.karaf.archetypes -DarchetypeArtifactId=activiti-b
+pmn-archetype -DarchetypeVersion=1.0.0-SNAPSHOT -DgroupId=org.examples -DartifactId=foo -Dversion=1.0.0-SNAPSHOT
+}}}
