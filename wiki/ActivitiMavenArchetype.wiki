@@ -62,5 +62,50 @@ PSHOT] found in catalog local
 [INFO] Final Memory: 6M/16M
 [INFO] ------------------------------------------------------------------------
 
+C:\demo\test>dir /S /B foo
+C:\demo\test\foo\.classpath
+C:\demo\test\foo\.project
+C:\demo\test\foo\pom.xml
+C:\demo\test\foo\README.txt
+C:\demo\test\foo\src
+C:\demo\test\foo\src\main
+C:\demo\test\foo\src\test
+C:\demo\test\foo\src\main\java
+C:\demo\test\foo\src\main\resources
+C:\demo\test\foo\src\main\java\org
+C:\demo\test\foo\src\main\java\org\examples
+C:\demo\test\foo\src\main\java\org\examples\Main.java
+C:\demo\test\foo\src\main\resources\diagrams
+C:\demo\test\foo\src\main\resources\META-INF
+C:\demo\test\foo\src\main\resources\diagrams\foo.activiti
+C:\demo\test\foo\src\main\resources\diagrams\foo.bpmn20.xml
+C:\demo\test\foo\src\main\resources\META-INF\spring
+C:\demo\test\foo\src\main\resources\META-INF\spring\beans.xml
+C:\demo\test\foo\src\test\java
+C:\demo\test\foo\src\test\resources
+C:\demo\test\foo\src\test\java\org
+C:\demo\test\foo\src\test\java\org\examples
+C:\demo\test\foo\src\test\java\org\examples\WorkflowTestCase.java
+C:\demo\test\foo\src\test\resources\activiti.cfg.xml
+C:\demo\test\foo\src\test\resources\logging.properties
+
+C:\demo\test>
+C:\demo\test>cd foo
+C:\demo\test\foo>mvn clean package
+...
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Building foo 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+...
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 41.390s
+[INFO] Finished at: Thu Mar 15 16:04:24 PDT 2012
+[INFO] Final Memory: 10M/29M
+[INFO] ------------------------------------------------------------------------
+
+
 
 }}}
