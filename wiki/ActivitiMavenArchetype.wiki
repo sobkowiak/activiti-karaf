@@ -63,6 +63,7 @@ PSHOT] found in catalog local
 [INFO] ------------------------------------------------------------------------
 
 C:\demo\test>dir /S /B foo
+
 C:\demo\test\foo\.classpath
 C:\demo\test\foo\.project
 C:\demo\test\foo\pom.xml
@@ -105,6 +106,26 @@ C:\demo\test\foo>mvn clean package
 [INFO] Finished at: Thu Mar 15 16:04:24 PDT 2012
 [INFO] Final Memory: 10M/29M
 [INFO] ------------------------------------------------------------------------
+
+C:\demo\test\foo>jar tvf target\foo-1.0.0-SNAPSHOT.jar
+   778 Thu Mar 15 16:04:24 PDT 2012 META-INF/MANIFEST.MF
+     0 Thu Mar 15 16:04:24 PDT 2012 META-INF/
+     0 Thu Mar 15 16:04:24 PDT 2012 META-INF/maven/
+     0 Thu Mar 15 16:04:24 PDT 2012 META-INF/maven/org.examples/
+     0 Thu Mar 15 16:04:24 PDT 2012 META-INF/maven/org.examples/foo/
+   138 Thu Mar 15 16:04:24 PDT 2012 META-INF/maven/org.examples/foo/pom.properties
+  4867 Thu Mar 15 15:55:58 PDT 2012 META-INF/maven/org.examples/foo/pom.xml
+     0 Thu Mar 15 16:04:24 PDT 2012 META-INF/spring/
+  1227 Thu Mar 15 15:55:58 PDT 2012 META-INF/spring/beans.xml
+     0 Thu Mar 15 16:04:24 PDT 2012 OSGI-INF/
+     0 Thu Mar 15 16:04:24 PDT 2012 OSGI-INF/activiti/
+ 12528 Thu Mar 15 16:04:02 PDT 2012 OSGI-INF/activiti/foo.activiti
+  2916 Thu Mar 15 16:04:02 PDT 2012 OSGI-INF/activiti/foo.bpmn20.xml
+     0 Thu Mar 15 16:04:24 PDT 2012 org/
+     0 Thu Mar 15 16:04:24 PDT 2012 org/examples/
+  1613 Thu Mar 15 16:04:10 PDT 2012 org/examples/Main.class
+
+C:\demo\test\foo>
 
 
 
