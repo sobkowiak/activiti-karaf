@@ -21,3 +21,5 @@ C:\demo\activiti-karaf-dist-1.0.0-SNAPSHOT\sources\activiti-bpmn-archetype>mvn c
 If you have a Eclipse IDE, install m2e plugins to use maven tooling from IDE and see [http://www.sonatype.com/books/m2eclipse-book/reference/creating.html#creating-sect-m2e-create-archetype how to create a maven project from archetype].
 
 If you want to use the archetype from command line, use the [http://maven.apache.org/archetype/maven-archetype-plugin/index.html maven archetype plugin]  
+
+=== Archetype Info ===
