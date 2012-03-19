@@ -108,22 +108,22 @@ C:\demo\test\foo>mvn clean package
 [INFO] ------------------------------------------------------------------------
 
 C:\demo\test\foo>jar tvf target\foo-1.0.0-SNAPSHOT.jar
-   778 Thu Mar 15 16:04:24 PDT 2012 META-INF/MANIFEST.MF
-     0 Thu Mar 15 16:04:24 PDT 2012 META-INF/
-     0 Thu Mar 15 16:04:24 PDT 2012 META-INF/maven/
-     0 Thu Mar 15 16:04:24 PDT 2012 META-INF/maven/org.examples/
-     0 Thu Mar 15 16:04:24 PDT 2012 META-INF/maven/org.examples/foo/
-   138 Thu Mar 15 16:04:24 PDT 2012 META-INF/maven/org.examples/foo/pom.properties
-  4867 Thu Mar 15 15:55:58 PDT 2012 META-INF/maven/org.examples/foo/pom.xml
-     0 Thu Mar 15 16:04:24 PDT 2012 META-INF/spring/
-  1227 Thu Mar 15 15:55:58 PDT 2012 META-INF/spring/beans.xml
-     0 Thu Mar 15 16:04:24 PDT 2012 OSGI-INF/
-     0 Thu Mar 15 16:04:24 PDT 2012 OSGI-INF/activiti/
- 12528 Thu Mar 15 16:04:02 PDT 2012 OSGI-INF/activiti/foo.activiti
-  2916 Thu Mar 15 16:04:02 PDT 2012 OSGI-INF/activiti/foo.bpmn20.xml
-     0 Thu Mar 15 16:04:24 PDT 2012 org/
-     0 Thu Mar 15 16:04:24 PDT 2012 org/examples/
-  1613 Thu Mar 15 16:04:10 PDT 2012 org/examples/Main.class
+   782 Mon Mar 19 13:03:02 PDT 2012 META-INF/MANIFEST.MF
+     0 Mon Mar 19 13:03:02 PDT 2012 META-INF/
+     0 Mon Mar 19 13:03:02 PDT 2012 META-INF/maven/
+     0 Mon Mar 19 13:03:02 PDT 2012 META-INF/maven/org.examples/
+     0 Mon Mar 19 13:03:02 PDT 2012 META-INF/maven/org.examples/foo/
+   138 Mon Mar 19 13:03:02 PDT 2012 META-INF/maven/org.examples/foo/pom.properties
+  4822 Mon Mar 19 13:01:08 PDT 2012 META-INF/maven/org.examples/foo/pom.xml
+     0 Mon Mar 19 13:03:02 PDT 2012 META-INF/spring/
+  1227 Mon Mar 19 13:01:08 PDT 2012 META-INF/spring/beans.xml
+     0 Mon Mar 19 13:03:02 PDT 2012 OSGI-INF/
+     0 Mon Mar 19 13:03:02 PDT 2012 OSGI-INF/activiti/
+ 12177 Mon Mar 19 13:02:46 PDT 2012 OSGI-INF/activiti/foo.activiti
+  2913 Mon Mar 19 13:02:46 PDT 2012 OSGI-INF/activiti/foo.bpmn20.xml
+     0 Mon Mar 19 13:03:02 PDT 2012 org/
+     0 Mon Mar 19 13:03:02 PDT 2012 org/examples/
+  1613 Mon Mar 19 13:02:50 PDT 2012 org/examples/Main.class
 
 C:\demo\test\foo>
 
