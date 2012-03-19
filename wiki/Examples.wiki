@@ -28,7 +28,7 @@
 karaf@root> list
 ...
 ...
-[ 146] [Active     ] [            ] [Started] [   60] activiti-karaf-examples/hello-activiti-bundle (1.0.0.SNAPSHOT)
+[ 146] [Active     ] [            ] [Started] [   60] activiti-karaf-examples/hello-activiti-example (1.0.0.SNAPSHOT)
 
 karaf@root> act:list
 
