@@ -2,3 +2,7 @@
 
   * [GettingStarted Getting Started]
   * [FAQ FAQ]
+  * [ActivitiCLI Activiti CLI]
+  * [Examples Examples]
+  * [ActivitiMavenArchetype Activiti Maven Archetype]
+  * [RequiredSoftware Required Software]
