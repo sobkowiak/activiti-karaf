@@ -9,10 +9,15 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Summary:
 [INFO]
-[INFO] activiti-karaf-examples ........................... SUCCESS [1.247s]
-[INFO] activiti-karaf-examples/hello-activiti-bundle ..... SUCCESS [56.137s]
+[INFO] activiti-karaf-examples ........................... SUCCESS [0.656s]
+[INFO] activiti-karaf-examples/hello-activiti-example .... SUCCESS [14.875s]
+[INFO] activiti-karaf-examples/mail-activiti-example ..... SUCCESS [4.625s]
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 25.250s
+[INFO] Finished at: Mon Mar 19 13:13:21 PDT 2012
+[INFO] Final Memory: 9M/29M
 [INFO] ------------------------------------------------------------------------
 }}}
   # Deploying 
