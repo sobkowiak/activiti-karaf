@@ -72,14 +72,14 @@ C:\demo\test\foo\src
 C:\demo\test\foo\src\main
 C:\demo\test\foo\src\test
 C:\demo\test\foo\src\main\java
+C:\demo\test\foo\src\main\process
 C:\demo\test\foo\src\main\resources
 C:\demo\test\foo\src\main\java\org
 C:\demo\test\foo\src\main\java\org\examples
 C:\demo\test\foo\src\main\java\org\examples\Main.java
-C:\demo\test\foo\src\main\resources\diagrams
+C:\demo\test\foo\src\main\process\foo.activiti
+C:\demo\test\foo\src\main\process\foo.bpmn20.xml
 C:\demo\test\foo\src\main\resources\META-INF
-C:\demo\test\foo\src\main\resources\diagrams\foo.activiti
-C:\demo\test\foo\src\main\resources\diagrams\foo.bpmn20.xml
 C:\demo\test\foo\src\main\resources\META-INF\spring
 C:\demo\test\foo\src\main\resources\META-INF\spring\beans.xml
 C:\demo\test\foo\src\test\java
