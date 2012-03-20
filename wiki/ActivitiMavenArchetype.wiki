@@ -6,7 +6,7 @@
 
 Activiti bpmn archetype described here can be used to create a maven project with required maven project configurations as well as a default activiti bpmn xml and related files. The maven project created with this is ready to build and deploy a sample bpmn process which developer can use to develop the process and package it as a osgi bundle for deployment into the activiti karaf container.
 
-== Building the archetypes ==
+== Building the archetype ==
 
 Typically, the archetype will be available at any public maven repository so that maven tool can use it directly from the public repository. Since we have not yet published any artifacts from this project to the public maven repository, developers who want to use this archetype first need to build it on their development machine so that this will be available in their local maven repository.
 
