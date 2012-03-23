@@ -8,3 +8,4 @@
   # What is the url for activiti explorer web app
     * [http://localhost:8181/activiti-explorer]
   # How to change activiti jdbc data source configuration
+    * modify the data source properties in the org.activiti.karaf.cfg file under ${install-root}/etc and restart the server. _*note: by modifying the data source to a different db, all your in-flight processes and deployments will not be visible anymore unless you have exported that data to the new db.*_
