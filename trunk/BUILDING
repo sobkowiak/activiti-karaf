@@ -15,12 +15,28 @@
  * limitations under the License.
  */
 
-Welcome to Activiti With Apache Karaf
-=====================================
+Building Activiti With Karaf
+============================
 
-Activti With Apache Karaf is an integration of Activiti runtime and 
-tools(web based) with Apache Karaf to allow Activti run in Apache Karaf 
+Initial Setup
+-------------
 
-For more information visti https://code.google.com/p/activiti-karaf/
+1) Install J2SE 6.0 SDK (or later), which can be downloaded from 
+   http://www.oracle.com/technetwork/java/javase/downloads/index-jdk5-jsp-142662.html.
 
+2) Make sure that your JAVA_HOME environment variable is set to the newly installed 
+   JDK location, and that your PATH includes %JAVA_HOME%\bin (windows) or 
+   $JAVA_HOME$/bin (unix).
+
+3) Install Maven 3.0.3, which can be downloaded from 
+   http://archive.apache.org/dist/maven/binaries/. 
+
+
+Building
+--------
+
+1) Change to the top level directory of Activiti With Karaf source.
+2) Run
+         $> mvn
+3) The distributions will be available under "actviti-karaf-dist/target" directory.
 
