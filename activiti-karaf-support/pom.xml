@@ -70,6 +70,12 @@
 			<scope>provided</scope>
 		</dependency>
         <dependency>
+            <groupId>org.springframework.osgi</groupId>
+            <artifactId>spring-osgi-core</artifactId>
+            <version>${spring.osgi.version}</version>
+            <scope>provided</scope>
+        </dependency>		
+        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
             <version>${spring.version}</version>
@@ -81,12 +87,6 @@
             <version>${spring.version}</version>
             <scope>provided</scope>
         </dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.jdbc</artifactId>
-			<version>${spring.version}</version>
-			<scope>provided</scope>
-		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.mybatis</artifactId>
@@ -115,11 +115,6 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc6</artifactId>
-			<version>11.2.0.2.0</version>
 		</dependency>
 	</dependencies>
 
