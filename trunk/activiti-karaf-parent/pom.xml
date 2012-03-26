@@ -175,4 +175,16 @@
 			<url>http://cisco.com</url>
 		</developer>
 	</developers>
+	<issueManagement>
+	  <system>googlecode</system>
+	  <url>http://code.google.com/p/activiti-karaf/issues/list</url>
+	</issueManagement>
+	<ciManagement>
+	  <system>CloudBees</system>
+	  <url>https://activiti-karaf.ci.cloudbees.com/</url>
+	</ciManagement>
+	<scm>
+	 <connection>scm:svn:http://activiti-karaf.googlecode.com/svn/trunk/</connection>
+	 <developerConnection>scm:svn:https://activiti-karaf.googlecode.com/svn/trunk/</developerConnection>
+	</scm>	
 </project>
