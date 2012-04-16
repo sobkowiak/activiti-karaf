@@ -37,8 +37,6 @@
 	<description>Activiti Karaf - Parent POM</description>
 	<url>http://code.google.com/p/activiti-karaf/</url>
 
-
-
 	<properties>
 	    <activiti.version>5.9</activiti.version>
 	    <karaf.version>2.2.5</karaf.version>
@@ -81,6 +79,9 @@
 			${activiti.osgi.import.additional},
 			*
 		</activiti.osgi.import.pkg>
+		<!--  maven deploy properties  -->
+        <activiti-karaf.deploy.release.repository>file:///C:/temp/m2-repo/release</activiti-karaf.deploy.release.repository>
+        <activiti-karaf.deploy.snapshot.repository>file:///C:/temp/m2-repo/snapshot</activiti-karaf.deploy.snapshot.repository>		
 	</properties>
 
 	<dependencies>
@@ -186,5 +187,24 @@
 	<scm>
 	 <connection>scm:svn:http://activiti-karaf.googlecode.com/svn/trunk/</connection>
 	 <developerConnection>scm:svn:https://activiti-karaf.googlecode.com/svn/trunk/</developerConnection>
+	 <url>http://activiti-karaf.googlecode.com/svn/trunk/</url>
 	</scm>	
+    <profiles>
+        <profile>
+            <id>deploy-by-ci</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <distributionManagement>
+                <repository>
+                    <id>activiti-karaf-release</id>
+                    <url>${activiti-karaf.deploy.release.repository}</url>
+                </repository>
+                <snapshotRepository>
+                    <id>activiti-karaf-snapshots</id>
+                    <url>${activiti-karaf.deploy.snapshot.repository}</url>
+                </snapshotRepository>
+            </distributionManagement>
+        </profile>
+    </profiles>	
 </project>
