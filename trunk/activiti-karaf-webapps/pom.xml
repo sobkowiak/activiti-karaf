@@ -42,8 +42,7 @@
 	    <!-- -->
 		<module>activiti-karaf-web-rest</module>
 		<module>activiti-karaf-web-explorer</module>
-		<module>activiti-karaf-web-modeler</module>
-		<!--   -->
+		<!-- <module>activiti-karaf-web-modeler</module>  -->
 	</modules>
 
 </project>
