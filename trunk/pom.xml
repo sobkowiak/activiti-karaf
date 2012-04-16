@@ -21,18 +21,24 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.activiti.karaf</groupId>
+    <parent>
+        <groupId>org.activiti.karaf</groupId>
+        <artifactId>activiti-karaf-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>./activiti-karaf-parent</relativePath>
+    </parent>
+
 	<artifactId>activiti-karaf-aggregator</artifactId>
-    <version>1.0.0-SNAPSHOT</version>	
 	<packaging>pom</packaging>
 	
 	<name>${project.artifactId}</name>
     <description>Activiti Karaf - Aggregator POM</description>
 
-
-	<properties>
-	</properties>
-
+    <properties>
+        <activiti-karaf.deploy.release.repository>file:///C:/temp/m2-repo/release</activiti-karaf.deploy.release.repository>
+        <activiti-karaf.deploy.snapshot.repository>file:///C:/temp/m2-repo/snapshot</activiti-karaf.deploy.snapshot.repository>
+    </properties>
+    
 	<modules>
 		<module>activiti-karaf-parent</module>
 		<module>activiti-karaf-support</module>
@@ -46,6 +52,4 @@
 		<module>activiti-karaf-it</module>
 	</modules>
 
-	<!-- <repositories> <repository> <id>Activiti</id> <url>http://maven.alfresco.com/nexus/content/repositories/activiti</url> 
-		</repository> </repositories> -->
 </project>

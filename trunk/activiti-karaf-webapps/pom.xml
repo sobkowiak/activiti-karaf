@@ -39,11 +39,11 @@
 		<activiti.karaf.home>target</activiti.karaf.home>
 	</properties>
 	<modules>
-	    <!-- 
+	    <!-- -->
 		<module>activiti-karaf-web-rest</module>
 		<module>activiti-karaf-web-explorer</module>
 		<module>activiti-karaf-web-modeler</module>
-		-->
+		<!--   -->
 	</modules>
 
 </project>
