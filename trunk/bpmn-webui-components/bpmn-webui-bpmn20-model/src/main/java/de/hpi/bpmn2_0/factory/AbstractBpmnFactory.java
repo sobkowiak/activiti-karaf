@@ -24,6 +24,7 @@ package de.hpi.bpmn2_0.factory;
  */
 
 import java.io.IOException;
+import java.io.StringReader;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -37,6 +38,7 @@ import javax.xml.namespace.QName;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.stream.StreamSource;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -46,9 +48,8 @@ import org.oryxeditor.server.diagram.label.LabelSettings;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
-
-import com.sun.xml.bind.StringInputStream;
 
 import de.hpi.bpmn2_0.annotations.Property;
 import de.hpi.bpmn2_0.annotations.StencilId;
@@ -351,7 +352,8 @@ public abstract class AbstractBpmnFactory {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setNamespaceAware(true);
 		DocumentBuilder builder = factory.newDocumentBuilder();
-		StringInputStream sis = new StringInputStream(exElXml);
+		// StringInputStream sis = new StringInputStream(exElXml);
+		InputSource sis = new InputSource( new StringReader(exElXml));
 		Document exDoc = builder.parse(sis);
 		if(!exDoc.getFirstChild().getNodeName().equals("external")) {
 			return;

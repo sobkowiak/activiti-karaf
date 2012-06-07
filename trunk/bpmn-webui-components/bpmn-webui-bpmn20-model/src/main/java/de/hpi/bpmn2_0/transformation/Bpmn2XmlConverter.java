@@ -3,6 +3,7 @@ package de.hpi.bpmn2_0.transformation;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.StringWriter;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +28,7 @@ import javax.xml.validation.SchemaFactory;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
-import com.sun.xml.bind.marshaller.NamespacePrefixMapper;
+// import com.sun.xml.bind.marshaller.NamespacePrefixMapper;
 
 import de.hpi.bpmn2_0.ExportValidationEventCollector;
 import de.hpi.bpmn2_0.model.Definitions;
@@ -35,11 +36,11 @@ import de.hpi.bpmn2_0.model.Definitions;
 public class Bpmn2XmlConverter {
 
 	private Definitions bpmnDefinitions;
-	private String bpmn20XsdPath;
+	private URL bpmn20XsdPath;
 
 	public Bpmn2XmlConverter() {}
 	
-	public Bpmn2XmlConverter(Definitions bpmnDefinitions, String bpmn20XsdPath) {
+	public Bpmn2XmlConverter(Definitions bpmnDefinitions, URL bpmn20XsdPath) {
 		this.bpmnDefinitions = bpmnDefinitions;
 		this.bpmn20XsdPath = bpmn20XsdPath;
 	}
@@ -56,10 +57,10 @@ public class Bpmn2XmlConverter {
 		Marshaller marshaller = context.createMarshaller();
 		marshaller.setProperty(Marshaller.JAXB_SCHEMA_LOCATION, "http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd");
 
-		NamespacePrefixMapper nsp = new BPMNPrefixMapper();
-		((BPMNPrefixMapper) nsp).setNsDefs(bpmnDefinitions.externalNSDefs);
-		
-		marshaller.setProperty("com.sun.xml.bind.namespacePrefixMapper", nsp);
+//		NamespacePrefixMapper nsp = new BPMNPrefixMapper();
+//		((BPMNPrefixMapper) nsp).setNsDefs(bpmnDefinitions.externalNSDefs);
+//		
+//		marshaller.setProperty("com.sun.xml.bind.namespacePrefixMapper", nsp);
 
 		/* Marshal BPMN 2.0 XML */
 
@@ -102,14 +103,14 @@ public class Bpmn2XmlConverter {
 		Marshaller marshaller = context.createMarshaller();
 		marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
-		NamespacePrefixMapper nsp = new BPMNPrefixMapper();
-		marshaller.setProperty("com.sun.xml.bind.namespacePrefixMapper", nsp);
+//		NamespacePrefixMapper nsp = new BPMNPrefixMapper();
+//		marshaller.setProperty("com.sun.xml.bind.namespacePrefixMapper", nsp);
 
 		/* Set Schema validation properties */
 		SchemaFactory sf = SchemaFactory
 				.newInstance(javax.xml.XMLConstants.W3C_XML_SCHEMA_NS_URI);
 
-		Schema schema = sf.newSchema(new File(bpmn20XsdPath));
+		Schema schema = sf.newSchema(bpmn20XsdPath);
 		marshaller.setSchema(schema);
 
 		ExportValidationEventCollector vec = new ExportValidationEventCollector();
