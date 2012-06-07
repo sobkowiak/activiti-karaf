@@ -26,8 +26,6 @@ package de.hpi.bpmn2_0.transformation;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.sun.xml.bind.marshaller.NamespacePrefixMapper;
-
 
 /**
  * The namespace prefix mapper is responsible for the creation of user friendly
@@ -35,8 +33,10 @@ import com.sun.xml.bind.marshaller.NamespacePrefixMapper;
  * 
  * @author Sven Wagner-Boysen
  *
+ * TODO: replace the code that uses this prefix mapper with the latest jaxb api in java6 or higher
  */
-public class BPMNPrefixMapper extends NamespacePrefixMapper {
+@Deprecated
+public class BPMNPrefixMapper {
 	
 	private Map<String,String> nsDefs;
 	
@@ -75,7 +75,7 @@ public class BPMNPrefixMapper extends NamespacePrefixMapper {
 	}
 	
 	public String[] getPreDeclaredNamespaceUris() {
-		super.getPreDeclaredNamespaceUris();
+		// TODO: implement call to NamespacePrefixMapper.getPreDeclaredNamespaceUris
 		String[] s = {};
 		return this.getNsDefs().keySet().toArray(s);
 	}

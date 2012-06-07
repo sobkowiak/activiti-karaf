@@ -42,10 +42,8 @@
     <module>bpmn-webui-parent</module>
     <module>bpmn-webui-diagram-core</module>
     <module>bpmn-webui-bpmn20-model</module>
-    <!--  
     <module>bpmn-webui-syntaxchecker</module>
     <module>bpmn-webui-platform</module>
-    -->
   </modules>
 
 </project>
