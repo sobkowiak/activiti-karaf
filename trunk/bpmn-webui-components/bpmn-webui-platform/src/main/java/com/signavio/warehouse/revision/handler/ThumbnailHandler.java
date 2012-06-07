@@ -26,6 +26,7 @@ import java.util.Map;
 
 import javax.servlet.ServletContext;
 
+import org.activiti.karaf.web.modeler.MyPNGTranscoder;
 import org.apache.batik.transcoder.TranscodingHints;
 import org.apache.batik.transcoder.image.PNGTranscoder;
 
@@ -55,6 +56,6 @@ public class ThumbnailHandler extends AbstractImageHandler {
 		hints.put(PNGTranscoder.KEY_MAX_WIDTH, WIDTH);
 		hints.put(PNGTranscoder.KEY_MAX_HEIGHT, HEIGHT);
 		
-		return getImage(RepresentationType.PNG_SMALL, new PNGTranscoder(), sbo, hints);
+		return getImage(RepresentationType.PNG_SMALL, new MyPNGTranscoder(), sbo, hints);
 	}
 }

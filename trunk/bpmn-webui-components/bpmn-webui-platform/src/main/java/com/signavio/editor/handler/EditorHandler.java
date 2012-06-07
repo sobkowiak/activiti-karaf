@@ -24,6 +24,7 @@ package com.signavio.editor.handler;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -220,7 +221,6 @@ public class EditorHandler extends BasisHandler {
 		}
 	}
     
-    
     private String getEditorXHTML(String title, String languageCode, String countryCode) {
     	
     	String libsUri = Platform.getInstance().getPlatformProperties().getLibsUri();
@@ -228,7 +228,7 @@ public class EditorHandler extends BasisHandler {
     	String languageFiles = "";
     	
     	if(!languageCode.equals("en") && !countryCode.equals("us")) {
-	    	if (new File(this.getServerRootPath() + EDITOR_URL_PREFIX + "i18n/translation_"+languageCode+".js").exists()) {
+	    	if (isResourcePathWithContextExists(EDITOR_URL_PREFIX + "i18n/translation_"+languageCode+".js")) {
 	    		// Add regular i18n file for language
 	    		languageFiles += "<script src=\"" + EDITOR_URL_PREFIX 
 	    		+ "i18n/translation_"+languageCode+".js\" type=\"text/javascript\" />\n";
@@ -237,7 +237,7 @@ public class EditorHandler extends BasisHandler {
 	    		+ "i18n/translation_signavio_"+languageCode+".js\" type=\"text/javascript\" />\n";
 	    	}
 	    	
-	    	if (new File(this.getServerRootPath() + EDITOR_URL_PREFIX + "i18n/translation_" + languageCode+"_" + countryCode + ".js").exists()) {
+	    	if (isResourcePathWithContextExists(EDITOR_URL_PREFIX + "i18n/translation_" + languageCode+"_" + countryCode + ".js")) {
 	    		// Add regular i18n file for language
 	    		languageFiles += "<script src=\"" + EDITOR_URL_PREFIX 
 	    		+ "i18n/translation_" + languageCode+"_" + countryCode 

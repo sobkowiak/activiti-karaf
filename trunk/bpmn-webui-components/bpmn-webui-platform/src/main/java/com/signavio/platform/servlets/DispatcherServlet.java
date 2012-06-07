@@ -22,6 +22,7 @@
 package com.signavio.platform.servlets;
 
 import java.util.Date;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -42,7 +43,7 @@ import com.signavio.platform.security.business.exceptions.BusinessObjectCreation
 import com.signavio.platform.security.business.exceptions.BusinessObjectDoesNotExistException;
 
 public class DispatcherServlet extends HttpServlet {
-	
+	private static final Logger LOG = Logger.getLogger(DispatcherServlet.class.getName());
 	/**
 	 * 
 	 */

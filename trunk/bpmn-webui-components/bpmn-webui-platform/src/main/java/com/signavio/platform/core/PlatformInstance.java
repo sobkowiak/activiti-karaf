@@ -22,6 +22,7 @@
 package com.signavio.platform.core;
 
 import java.io.File;
+import java.net.URL;
 
 /**
  * A platform instance represents the one and only running platform of a server. PlatformInstance are
@@ -53,7 +54,15 @@ public interface PlatformInstance {
 	 * @param path The path of the file
 	 * @return
 	 */
-	public abstract File getFile(String path);
+	// public abstract File getFile(String path);
+	
+	/**
+	 * Returns URL of the resource for a given path
+	 * @param path of the resource e.g. /WEB-INF/xml/...
+	 * @return
+	 */
+	 public abstract URL getResource(String path);
+	
 	
 	/**
 	 * Stop the platform and all its components

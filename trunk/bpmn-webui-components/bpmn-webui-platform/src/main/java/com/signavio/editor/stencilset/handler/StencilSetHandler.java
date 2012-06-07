@@ -47,8 +47,7 @@ import com.signavio.usermanagement.user.business.FsUser;
 @HandlerConfiguration(uri = "/editor_stencilset", rel = "stencilset")
 public class StencilSetHandler extends BasisHandler {
 
-	public final String SS_CONFIGURATION_FILE = this.getRootDirectory()
-			+ "/WEB-INF/json/stencilsets";
+	public final String SS_CONFIGURATION_PATH =  "/WEB-INF/json/stencilsets";
 
 	public final String EDITOR_URL_PREFIX;
 	
@@ -75,17 +74,17 @@ public class StencilSetHandler extends BasisHandler {
 		String embedSvg = getParameter(req, "embedsvg");
 		String url = getParameter(req, "url");
 
-		String fileName = SS_CONFIGURATION_FILE + ".json";
+		String resourcePath = SS_CONFIGURATION_PATH + ".json";
 		
 		// if the namespace is not set, return information
 		// about all available stencilsets.
 
 		try {
 			if (namespace == null || namespace.equals("")) {
-				this.writeFileToResponse(new File(fileName), res);
+				this.writeResourceToResponse(resourcePath, res);
 			} else {
 				// get resource url for namespace
-				StringBuffer ssConfBuffer = FileUtil.readFile(new File(fileName));
+				StringBuffer ssConfBuffer = this.readResource(resourcePath);
 				JSONArray ssConf = new JSONArray(ssConfBuffer.toString());
 
 				String resource = null;
@@ -120,32 +119,33 @@ public class StencilSetHandler extends BasisHandler {
 
 				PrintWriter out = res.getWriter();
 
-				String rootDirectory = this.getRootDirectory();
-				if(rootDirectory.endsWith("ROOT")) {
-					rootDirectory = rootDirectory.substring(0, rootDirectory.length()-5);
-				}
-				File jsonFile;
+//				String rootDirectory = this.getRootDirectory();
+//				if(rootDirectory.endsWith("ROOT")) {
+//					rootDirectory = rootDirectory.substring(0, rootDirectory.length()-5);
+//				}
+				
+//				File jsonFile;
+				
+				String jsonPath = null;
+				
 				if (embedSvg != null && embedSvg.equals("true")) { // SVG
 																	// embedding
-					jsonFile = new File(rootDirectory
-							+ EDITOR_URL_PREFIX + "stencilsets/" + resource);
+					jsonPath = EDITOR_URL_PREFIX + "stencilsets/" + resource;
 					
 				} else { // no SVG embedding (default)
 					// try to find stencilset nosvg representation
 					int pIdx = resource.lastIndexOf('.');
-					jsonFile = new File(rootDirectory
-							+ EDITOR_URL_PREFIX + "stencilsets/"
+					jsonPath = EDITOR_URL_PREFIX + "stencilsets/"
 							+ resource.substring(0, pIdx) + "-nosvg"
-							+ resource.substring(pIdx));
-					if (!jsonFile.exists())
-						jsonFile = new File(rootDirectory
-								+ EDITOR_URL_PREFIX + "stencilsets/" + resource);
+							+ resource.substring(pIdx);
+					if (null == this.getServletContext().getResource(jsonPath) ) {
+						jsonPath = EDITOR_URL_PREFIX + "stencilsets/" + resource;
+					}
 				}
-
-				if (!jsonFile.exists()) {
-					System.out.println(jsonFile.getAbsolutePath());
-					throw new RequestException(
-							"editor.stencilset.ssFileNotfound");
+				if (null == this.getServletContext().getResource(jsonPath) ) {
+					jsonPath = EDITOR_URL_PREFIX + "stencilsets/" + resource;
+					String errMsg = ("### editor.stencilset.ssFileNotfound: " + jsonPath);
+					throw new RequestException(errMsg);
 				}
 
 				// if the url parameter is set to true, only return the url of
@@ -166,13 +166,8 @@ public class StencilSetHandler extends BasisHandler {
 					if (jsonp != null)
 						out.append(jsonp + "(");
 
-					BufferedReader reader = new BufferedReader(new FileReader(
-							jsonFile));
-					String line = null;
-					while ((line = reader.readLine()) != null) {
-						out.append(line);
-						out.append(System.getProperty("line.separator"));
-					}
+					this.writeResource(jsonPath, out);
+					
 					if (jsonp != null)
 						out.append(");");
 				}

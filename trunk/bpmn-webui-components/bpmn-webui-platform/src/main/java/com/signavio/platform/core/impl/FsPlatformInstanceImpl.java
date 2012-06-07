@@ -22,6 +22,8 @@
 package com.signavio.platform.core.impl;
 
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import javax.servlet.ServletContext;
 
@@ -100,5 +102,14 @@ public class FsPlatformInstanceImpl implements PlatformInstance {
 		return platformProperties;
 	}
 
+	public URL getResource(String path) {
+		try {
+			return this.servletContext.getResource(path);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 }

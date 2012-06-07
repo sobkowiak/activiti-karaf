@@ -28,12 +28,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.net.URL;
 import java.net.URLDecoder;
 import java.util.Collection;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -60,7 +63,7 @@ import com.signavio.platform.servlets.DispatcherServlet;
  *
  */
 public abstract class AbstractHandler {
-	
+	private static final Logger LOG = Logger.getLogger(AbstractHandler.class.getName());
 	/**
 	 * Define some variables
 	 */
@@ -99,24 +102,31 @@ public abstract class AbstractHandler {
 		return SERVER_URL;
 	}
 	
-	/**
-	 * Returns the absolute path to the root directory of the webapps folder
-	 * @return Directory string of the root folder
-	 */
-    protected String getRootDirectory() {
-    	return this.getServletContext().getRealPath("");
-    }
-    
-    /**
-     * Returns the full path to the server's root directory
-     * (for tomcat, it's the webapps folder).
-     * @return The full path to the server's root directory.
-     */
-    protected String getServerRootPath() {
-    	String realPath = this.getServletContext().getRealPath("");
-    	File backendDir = new File(realPath);
-    	return backendDir.getParent();
-    }
+//	/**
+//	 * Returns the absolute path to the root directory of the webapps folder
+//	 * @return Directory string of the root folder
+//	 */
+//    protected String getRootDirectory() {
+//    	String rootDir = this.getServletContext().getRealPath("");
+//    	try {
+//    	LOG.info("### WEB-INF/xml url = " + this.getServletContext().getResource("/WEB-INF/xml/"));
+//    	} catch (Exception ex) {
+//    		ex.printStackTrace();
+//    	}
+//    	LOG.info("### Servlet context root dir= " + rootDir);
+//    	return rootDir;
+//    }
+//    
+//    /**
+//     * Returns the full path to the server's root directory
+//     * (for tomcat, it's the webapps folder).
+//     * @return The full path to the server's root directory.
+//     */
+//    protected String getServerRootPath() {
+//    	String realPath = this.getServletContext().getRealPath("");
+//    	File backendDir = new File(realPath);
+//    	return backendDir.getParent();
+//    }
     
     /**
      * Get a representation from the resource
@@ -485,31 +495,102 @@ public abstract class AbstractHandler {
 		return j;
     }
     
-    protected void writeFileToResponse(File file, HttpServletResponse res) throws IOException {
-    	PrintWriter out = null;
-    	BufferedReader reader = null;
-    	
+//    protected void writeFileToResponse(File file, HttpServletResponse res) throws IOException {
+//    	PrintWriter out = null;
+//    	BufferedReader reader = null;
+//    	
+//    	try {
+//  			out = res.getWriter();
+//  			
+//  			reader = new BufferedReader(new FileReader(file));
+//			String line = null;
+//			while (( line = reader.readLine()) != null){
+//		          out.append(line);
+//		          //TODO @jan-felix: wieso nicht \n ?
+//		          out.append(System.getProperty("line.separator"));
+//		    }
+//  		} finally {
+//  			try {
+//  				out.close();
+//  				reader.close();
+//  			} catch(IOException e) {
+//  				
+//  			}
+//  		}
+//    }
+    
+    protected boolean isResourcePathWithContextExists(String resourcePathWithCtx) {
+    	String resourcePath = resourcePathWithCtx.replace(this.getServletContext().getContextPath(), "");
+    	URL resourcePathURL = null;;
     	try {
-  			out = res.getWriter();
-  			
-  			reader = new BufferedReader(new FileReader(file));
+    		resourcePathURL = this.getServletContext().getResource(resourcePath);
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
+    	return (resourcePathURL != null);
+    }    
+    
+	protected void writeResourceToResponse(String resourcePath,	HttpServletResponse res) throws IOException {
+		URL resourceURL = this.getServletContext().getResource(resourcePath);
+		writeResourceToResponse(resourceURL, res);
+	}    
+	
+	protected void writeResourceToResponse(URL resourceURL,	HttpServletResponse res) throws IOException {
+		PrintWriter out = null;
+		try {
+			out = res.getWriter();
+			writeResource(resourceURL, out);
+		} finally {
+			if (out != null) {
+				try {
+					out.close();
+				} catch (Exception e) {
+					// TODO log
+				}
+			}
+		}		
+	}
+	
+	protected StringBuffer readResource(String resourcePath) throws IOException {
+		URL resourceURL = this.getServletContext().getResource(resourcePath);
+		return readResource(resourceURL);
+		
+	}
+	
+	protected StringBuffer readResource(URL resourceURL) throws IOException {
+		StringWriter writer = new StringWriter();
+		PrintWriter out = new PrintWriter(writer);
+		writeResource(resourceURL, out);
+		out.close();
+		return writer.getBuffer();
+	}
+	
+	protected void writeResource(String resourcePath, PrintWriter out) throws IOException {
+		URL resourceURL = this.getServletContext().getResource(resourcePath);
+		writeResource(resourceURL, out);
+	}
+	
+	protected void writeResource(URL resourceURL, PrintWriter out) throws IOException {
+		InputStream in = null;
+		try {
+			in = resourceURL.openStream();
+			BufferedReader reader = new BufferedReader(
+					new InputStreamReader(in));
 			String line = null;
-			while (( line = reader.readLine()) != null){
-		          out.append(line);
-		          //TODO @jan-felix: wieso nicht \n ?
-		          out.append(System.getProperty("line.separator"));
-		    }
-  		} finally {
-  			try {
-  				out.close();
-  				reader.close();
-  			} catch(IOException e) {
-  				
-  			}
-  		}
-    }
-    
-    
+			while ((line = reader.readLine()) != null) {
+				out.println(line);
+			}
+		} finally {
+			if (in != null) {
+				try {
+					in.close();
+				} catch (Exception e) {
+					// TODO log
+				}
+			}
+		}
+	}
+	
     /**
      * Adds default objects as attributes to the request, that are usually 
      *  necessary in our jsp files.
