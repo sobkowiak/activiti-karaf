@@ -26,6 +26,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletContext;
 
@@ -35,13 +37,14 @@ import org.apache.batik.transcoder.TranscoderInput;
 import org.apache.batik.transcoder.TranscoderOutput;
 import org.apache.batik.transcoder.TranscodingHints;
 
+
 import com.signavio.platform.security.business.FsSecureBusinessObject;
 import com.signavio.warehouse.revision.business.FsModelRepresentationInfo;
 import com.signavio.warehouse.revision.business.FsModelRevision;
 import com.signavio.warehouse.revision.business.RepresentationType;
 
 public class AbstractImageHandler extends AbstractRevisionExportHandler {
-
+	private static final Logger LOG = Logger.getLogger(AbstractImageHandler.class.getName());
 	public AbstractImageHandler(ServletContext servletContext) {
 		super(servletContext);
 		
@@ -87,9 +90,9 @@ public class AbstractImageHandler extends AbstractRevisionExportHandler {
 					
 					outBytes.close();
 		    	} catch (TranscoderException e) {
-					
+					LOG.log(Level.INFO, e.getMessage(), e);
 				} catch (IOException e) {
-					
+					LOG.log(Level.INFO, e.getMessage(), e);
 				} finally {
 					try {
 						outBytes.close();

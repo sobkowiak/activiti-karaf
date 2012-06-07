@@ -40,8 +40,7 @@ import com.signavio.usermanagement.user.business.FsUser;
 @HandlerConfiguration(uri = "/editor_ssextensions", rel = "stencilset")
 public class SSExtensionsHandler extends BasisHandler {
 
-	public final String SS_EXT_CONFIGURATION_FILE = this.getRootDirectory()
-			+ "/WEB-INF/json/extensions";
+	public final String SS_EXT_CONFIGURATION_PATH = "/WEB-INF/json/extensions";
 
 	public final String EDITOR_URL_PREFIX;
 
@@ -63,10 +62,10 @@ public class SSExtensionsHandler extends BasisHandler {
 
 		FsUser user = token.getUser();
 
-		String fileName = SS_EXT_CONFIGURATION_FILE + ".json";
+		String resourcePath = SS_EXT_CONFIGURATION_PATH + ".json";
 
 		try {
-			this.writeFileToResponse(new File(fileName), res);
+			this.writeResourceToResponse(resourcePath, res);
 		} catch (IOException e) {
 			throw new RequestException("editor.ssextension.ioException", e);
 		} catch (Exception e) {

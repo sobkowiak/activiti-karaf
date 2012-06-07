@@ -23,6 +23,7 @@ package com.signavio.editor.handler;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -51,14 +52,20 @@ public class PluginsHandler extends BasisHandler {
 	@Override
     public <T extends FsSecureBusinessObject> void doGet(HttpServletRequest req, HttpServletResponse res, FsAccessToken token, T sbo) {
   	
-  		File pluginConf = new File(this.getRootDirectory() + "/WEB-INF/xml/editor/plugins.xml");
+  		String pluginConfPath = "/WEB-INF/xml/editor/plugins.xml";
+  		URL pluginConfPathURL = null;
+  		try {
+  			pluginConfPathURL = this.getServletContext().getResource(pluginConfPath);
+  		} catch (Exception ex) {
+  			throw new RequestException("editor.pluginXmlForProfileNotFound " + pluginConfPath);
+  		}
   		
-  		if(pluginConf.exists()) {
+  		if(pluginConfPathURL != null) {
   			res.setStatus(200);
   	  		res.setContentType("text/xml");
   	  		
   	  		try {
-				this.writeFileToResponse(pluginConf, res);
+				this.writeResourceToResponse(pluginConfPathURL, res);
 			} catch (IOException e) {
 				throw new RequestException("platform.ioexception", e);
 			}

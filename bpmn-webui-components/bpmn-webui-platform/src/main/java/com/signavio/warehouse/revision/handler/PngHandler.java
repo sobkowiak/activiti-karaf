@@ -23,6 +23,7 @@ package com.signavio.warehouse.revision.handler;
 
 import javax.servlet.ServletContext;
 
+import org.activiti.karaf.web.modeler.MyPNGTranscoder;
 import org.apache.batik.transcoder.image.PNGTranscoder;
 
 import com.signavio.platform.annotations.HandlerConfiguration;
@@ -42,6 +43,6 @@ public class PngHandler extends AbstractImageHandler {
 	@Override
 	@HandlerMethodActivation
 	public  <T extends FsSecureBusinessObject> byte[] doExport(T sbo, Object params){
-		return getImage(RepresentationType.PNG, new PNGTranscoder(), sbo, null);
+		return getImage(RepresentationType.PNG, new MyPNGTranscoder(), sbo, null);
 	}
 }

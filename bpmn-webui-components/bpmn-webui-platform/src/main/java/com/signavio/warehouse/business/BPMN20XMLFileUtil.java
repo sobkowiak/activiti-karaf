@@ -22,7 +22,7 @@ public class BPMN20XMLFileUtil {
 
 	public static void storeBPMN20XMLFile(String path, String jsonRep) throws IOException, JSONException, BpmnConverterException, JAXBException, SAXException, ParserConfigurationException, TransformerException {
 		PlatformProperties props = Platform.getInstance().getPlatformProperties();
-		Diagram2XmlConverter converter = new Diagram2XmlConverter(BasicDiagramBuilder.parseJson(jsonRep), Platform.getInstance().getFile("/WEB-INF/xsd/BPMN20.xsd").getAbsolutePath());
+		Diagram2XmlConverter converter = new Diagram2XmlConverter(BasicDiagramBuilder.parseJson(jsonRep), Platform.getInstance().getResource("/WEB-INF/xsd/BPMN20.xsd"));
 		
 		StringWriter xml = converter.getXml();
 		

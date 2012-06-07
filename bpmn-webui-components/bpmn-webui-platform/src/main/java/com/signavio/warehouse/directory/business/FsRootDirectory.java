@@ -21,6 +21,9 @@
  */
 package com.signavio.warehouse.directory.business;
 
+
+import java.util.logging.Logger;
+
 import com.signavio.platform.core.Platform;
 import com.signavio.platform.core.PlatformProperties;
 import com.signavio.platform.core.impl.FsPlatformPropertiesImpl;
@@ -34,7 +37,7 @@ import com.signavio.platform.core.impl.FsPlatformPropertiesImpl;
  *
  */
 public class FsRootDirectory extends FsDirectory {
-	
+	private static final Logger LOG = Logger.getLogger(FsRootDirectory.class.getName());
 	private static FsRootDirectory SINGLETON;
 	public static final String ID_OF_SINGLETON = "root-directory";
 
@@ -44,11 +47,11 @@ public class FsRootDirectory extends FsDirectory {
 			throw new IllegalStateException("File system backend is already initialized");
 		}
 		
-		System.out.println("[INFO] Initializing Root Directory...");
+		LOG.info("Initializing Root Directory...");
 		
 		if (path != null && path.length() > 0) {
 			SINGLETON = new FsRootDirectory(path);
-			System.out.println("[INFO] Initialized Root Directory!");
+			LOG.info("Initialized Root Directory!");
 		} else {
 			throw new IllegalStateException("Could initialize file system backend");
 		}
