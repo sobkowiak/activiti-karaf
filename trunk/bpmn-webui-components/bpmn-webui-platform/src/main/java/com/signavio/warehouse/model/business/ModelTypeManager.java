@@ -38,7 +38,6 @@ import java.util.Set;
 import com.signavio.platform.core.HandlerDirectory;
 import com.signavio.platform.handler.AbstractHandler;
 import com.signavio.warehouse.model.business.modeltype.BPMN2_0XMLModelType;
-import com.signavio.warehouse.model.business.modeltype.JpdlModelType;
 import com.signavio.warehouse.model.business.modeltype.SignavioModelType;
 
 public class ModelTypeManager {
@@ -65,7 +64,7 @@ public class ModelTypeManager {
 		extension2modelTypes = new HashMap<String, ModelType>();
 		backfallModelType = new SignavioModelType();
 		extension2modelTypes.put(SignavioModelType.class.getAnnotation(ModelTypeFileExtension.class).fileExtension(), backfallModelType);
-		extension2modelTypes.put(JpdlModelType.class.getAnnotation(ModelTypeFileExtension.class).fileExtension(), new JpdlModelType());
+//		extension2modelTypes.put(JpdlModelType.class.getAnnotation(ModelTypeFileExtension.class).fileExtension(), new JpdlModelType());
 //		extension2modelTypes.put(BPMN2_0XMLModelType.class.getAnnotation(ModelTypeFileExtension.class).fileExtension(), new BPMN2_0XMLModelType());
 		filter = new FilenameFilter(){
 			public boolean accept(File dir, String name) {
@@ -103,9 +102,6 @@ public class ModelTypeManager {
 		int index;
 		if (nameWithExtension.endsWith(SignavioModelType.class.getAnnotation(ModelTypeFileExtension.class).fileExtension())) {
 			index = nameWithExtension.length() - SignavioModelType.class.getAnnotation(ModelTypeFileExtension.class).fileExtension().length();
-		} else 
-		if (nameWithExtension.endsWith(JpdlModelType.class.getAnnotation(ModelTypeFileExtension.class).fileExtension())) {
-			index = nameWithExtension.length() - JpdlModelType.class.getAnnotation(ModelTypeFileExtension.class).fileExtension().length();
 		} else {
 			return null;
 		}
