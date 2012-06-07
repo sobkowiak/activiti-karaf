@@ -47,7 +47,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.catalina.util.RequestUtil;
+import org.activiti.karaf.bpmn.webui.platform.util.RequestUtil;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

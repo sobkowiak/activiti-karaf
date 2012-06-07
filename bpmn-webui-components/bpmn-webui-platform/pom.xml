@@ -47,8 +47,12 @@
     </activiti.osgi.import.pkg>
     <activiti.osgi.dynamic>*</activiti.osgi.dynamic>
     <activiti.osgi.export.pkg>
-      !org.activiti.karaf.support.internal,
-      org.activiti.karaf.support
+        org.activiti.karaf.bpmn.webui.platform.*,
+        com.signavio.platform.*,
+        com.signavio.editor.*,
+        com.signavio.stencilset.*,
+        com.signavio.usermanagement.*,
+        com.signavio.warehouse.*
     </activiti.osgi.export.pkg>
     <activiti.osgi.private.pkg>
       org.activiti.karaf.support.internal
@@ -89,13 +93,32 @@
     <version>1.7</version>
     </dependency>
     -->
+                <dependency>
+                        <groupId>org.apache.servicemix.bundles</groupId>
+                        <artifactId>org.apache.servicemix.bundles.xerces</artifactId>
+                        <version>2.9.1_5</version>
+                        <scope>provided</scope>
+                </dependency>    
     <dependency>
       <groupId>org.apache.servicemix.bundles</groupId>
       <artifactId>org.apache.servicemix.bundles.batik</artifactId>
       <version>${batik.osgi.version}</version>
     </dependency>
-    
-    <!-- main deps -->
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>batik-ext</artifactId>
+            <version>1.7</version>
+            <optional>true</optional>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>batik-codec</artifactId>
+            <version>1.7</version>
+            <optional>true</optional>
+            <scope>provided</scope>
+        </dependency>    
+    <!-- main deps end -->
     <dependency>
       <groupId>org.osgi</groupId>
       <artifactId>org.osgi.core</artifactId>

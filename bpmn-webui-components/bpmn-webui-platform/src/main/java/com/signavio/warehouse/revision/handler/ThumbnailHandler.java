@@ -26,7 +26,7 @@ import java.util.Map;
 
 import javax.servlet.ServletContext;
 
-import org.activiti.karaf.web.modeler.MyPNGTranscoder;
+import org.activiti.karaf.bpmn.webui.platform.MyPNGTranscoder;
 import org.apache.batik.transcoder.TranscodingHints;
 import org.apache.batik.transcoder.image.PNGTranscoder;
 

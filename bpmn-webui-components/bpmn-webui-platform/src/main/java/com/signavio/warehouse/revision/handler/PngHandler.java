@@ -23,7 +23,7 @@ package com.signavio.warehouse.revision.handler;
 
 import javax.servlet.ServletContext;
 
-import org.activiti.karaf.web.modeler.MyPNGTranscoder;
+import org.activiti.karaf.bpmn.webui.platform.MyPNGTranscoder;
 import org.apache.batik.transcoder.image.PNGTranscoder;
 
 import com.signavio.platform.annotations.HandlerConfiguration;
