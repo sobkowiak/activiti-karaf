@@ -44,6 +44,7 @@
     <module>bpmn-webui-bpmn20-model</module>
     <module>bpmn-webui-syntaxchecker</module>
     <module>bpmn-webui-platform</module>
+    <module>bpmn-webui</module>
   </modules>
 
 </project>
