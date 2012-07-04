@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!--
-    Licensed to the Apache Software Foundation (ASF) under one or more
-    contributor license agreements. See the NOTICE file distributed with
-    this work for additional information regarding copyright ownership.
-    The ASF licenses this file to You under the Apache License, Version 2.0
-    (the "License"); you may not use this file except in compliance with
-    the License. You may obtain a copy of the License at
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements. See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License. You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+  http://www.apache.org/licenses/LICENSE-2.0
 
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
-  -->
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -47,12 +47,13 @@
     </activiti.osgi.import.pkg>
     <activiti.osgi.dynamic>*</activiti.osgi.dynamic>
     <activiti.osgi.export.pkg>
-        org.activiti.karaf.bpmn.webui.platform.*,
-        com.signavio.platform.*,
-        com.signavio.editor.*,
-        com.signavio.stencilset.*,
-        com.signavio.usermanagement.*,
-        com.signavio.warehouse.*
+      org.activiti.karaf.bpmn.webui.platform.*,
+      com.signavio.platform.*,
+      com.signavio.editor.*,
+      com.signavio.explorer.*,
+      com.signavio.stencilset.*,
+      com.signavio.usermanagement.*,
+      com.signavio.warehouse.*
     </activiti.osgi.export.pkg>
     <activiti.osgi.private.pkg>
       org.activiti.karaf.support.internal
@@ -62,20 +63,20 @@
 
   <dependencies>
     <dependency>
-        <groupId>org.activiti.karaf.bpmn.webui</groupId>
-        <artifactId>bpmn-webui-diagram-core</artifactId>
-        <version>${project.version}</version>
+      <groupId>org.activiti.karaf.bpmn.webui</groupId>
+      <artifactId>bpmn-webui-diagram-core</artifactId>
+      <version>${project.version}</version>
     </dependency>
     <dependency>
-        <groupId>org.activiti.karaf.bpmn.webui</groupId>
-        <artifactId>bpmn-webui-bpmn20-model</artifactId>
-        <version>${project.version}</version>
+      <groupId>org.activiti.karaf.bpmn.webui</groupId>
+      <artifactId>bpmn-webui-bpmn20-model</artifactId>
+      <version>${project.version}</version>
     </dependency>
     <dependency>
-        <groupId>org.activiti.karaf.bpmn.webui</groupId>
-        <artifactId>bpmn-webui-syntaxchecker</artifactId>
-        <version>${project.version}</version>
-    </dependency>        
+      <groupId>org.activiti.karaf.bpmn.webui</groupId>
+      <artifactId>bpmn-webui-syntaxchecker</artifactId>
+      <version>${project.version}</version>
+    </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
@@ -86,38 +87,38 @@
       <artifactId>json</artifactId>
       <version>20090211</version>
     </dependency>
-    <!-- 
-    <dependency>
-    <groupId>org.apache.xmlgraphics</groupId>
-    <artifactId>batik-js</artifactId>
-    <version>1.7</version>
-    </dependency>
+    <!--
+      <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>batik-js</artifactId>
+      <version>1.7</version>
+      </dependency>
     -->
-                <dependency>
-                        <groupId>org.apache.servicemix.bundles</groupId>
-                        <artifactId>org.apache.servicemix.bundles.xerces</artifactId>
-                        <version>2.9.1_5</version>
-                        <scope>provided</scope>
-                </dependency>    
+    <dependency>
+      <groupId>org.apache.servicemix.bundles</groupId>
+      <artifactId>org.apache.servicemix.bundles.xerces</artifactId>
+      <version>2.9.1_5</version>
+      <scope>provided</scope>
+    </dependency>
     <dependency>
       <groupId>org.apache.servicemix.bundles</groupId>
       <artifactId>org.apache.servicemix.bundles.batik</artifactId>
       <version>${batik.osgi.version}</version>
     </dependency>
-        <dependency>
-            <groupId>org.apache.xmlgraphics</groupId>
-            <artifactId>batik-ext</artifactId>
-            <version>1.7</version>
-            <optional>true</optional>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.xmlgraphics</groupId>
-            <artifactId>batik-codec</artifactId>
-            <version>1.7</version>
-            <optional>true</optional>
-            <scope>provided</scope>
-        </dependency>    
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>batik-ext</artifactId>
+      <version>1.7</version>
+      <optional>true</optional>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>batik-codec</artifactId>
+      <version>1.7</version>
+      <optional>true</optional>
+      <scope>provided</scope>
+    </dependency>
     <!-- main deps end -->
     <dependency>
       <groupId>org.osgi</groupId>

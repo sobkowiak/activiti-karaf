@@ -47,9 +47,11 @@
     </activiti.osgi.import.pkg>
     <activiti.osgi.dynamic>*</activiti.osgi.dynamic>
     <activiti.osgi.export.pkg>
-      com.signavio.warehouse.model.syntaxchecker.*,
-      de.hpi.bpmn2_0.validation.*,
-      de.hpi.diagram.verification.*
+      com.signavio.warehouse.model.syntaxchecker,
+      com.signavio.warehouse.model.syntaxchecker.util,
+      de.hpi.bpmn2_0.validation,
+      de.hpi.bpmn2_0.validation.xsd,
+      de.hpi.diagram.verification
     </activiti.osgi.export.pkg>
     <activiti.osgi.private.pkg>
     </activiti.osgi.private.pkg>

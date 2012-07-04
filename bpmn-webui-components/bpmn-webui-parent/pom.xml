@@ -76,6 +76,10 @@
       ${activiti.osgi.import.additional},
       *
     </activiti.osgi.import.pkg>
+    <webui-version>${project.version}</webui-version>
+    <webui-webapp-context>activiti-modeler</webui-webapp-context>
+    <webui-config>activiti</webui-config>
+    <webui-config-version>${project.version}</webui-config-version>
     <!-- maven deploy properties -->
     <activiti-karaf.deploy.release.repository>${project.baseUri}/target/m2-repo/release</activiti-karaf.deploy.release.repository>
     <activiti-karaf.deploy.snapshot.repository>${project.baseUri}/target/m2-repo/snapshot</activiti-karaf.deploy.snapshot.repository>
@@ -143,6 +147,11 @@
           <artifactId>maven-resources-plugin</artifactId>
           <version>2.5</version>
         </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>1.7</version>
+        </plugin>        
       </plugins>
     </pluginManagement>
   </build>

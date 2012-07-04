@@ -40,11 +40,15 @@
 
   <modules>
     <module>bpmn-webui-parent</module>
+    <module>bpmn-webui-build-tools</module>
     <module>bpmn-webui-diagram-core</module>
     <module>bpmn-webui-bpmn20-model</module>
     <module>bpmn-webui-syntaxchecker</module>
     <module>bpmn-webui-js-api</module>
     <module>bpmn-webui-js-libs</module>
+    <module>bpmn-webui-config</module>
+    <module>bpmn-webui-explorer</module>
+    <module>bpmn-webui-editor</module>
     <module>bpmn-webui-platform</module>
     <module>bpmn-webui</module>
   </modules>
