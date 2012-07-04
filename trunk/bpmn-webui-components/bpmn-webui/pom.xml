@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!--
-    Licensed to the Apache Software Foundation (ASF) under one or more
-    contributor license agreements. See the NOTICE file distributed with
-    this work for additional information regarding copyright ownership.
-    The ASF licenses this file to You under the Apache License, Version 2.0
-    (the "License"); you may not use this file except in compliance with
-    the License. You may obtain a copy of the License at
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements. See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License. You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+  http://www.apache.org/licenses/LICENSE-2.0
 
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
-  -->
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -48,6 +48,13 @@
     <activiti.osgi.export.pkg />
     <activiti.osgi.private.pkg />
     <activiti.artifact>org.activiti.karaf.bpmn.webui</activiti.artifact>
+
+    <webui.build.configDir>${project.build.directory}/config</webui.build.configDir>
+    <webui.build.explorerDir>${project.build.directory}/explorer</webui.build.explorerDir>
+    <webui.build.editorDir>${project.build.directory}/explorer</webui.build.editorDir>    
+    <webui.build.warDir>${project.build.directory}/${project.build.finalName}</webui.build.warDir>
+    <webui.build.tmpDir>${project.build.directory}/tmp</webui.build.tmpDir>
+
   </properties>
 
   <dependencies>
@@ -162,10 +169,107 @@
       <optional>true</optional>
       <scope>provided</scope>
     </dependency>
+
+    <!-- dependent wars -->
+    <dependency>
+      <groupId>org.activiti.karaf.bpmn.webui</groupId>
+      <artifactId>bpmn-webui-explorer</artifactId>
+      <version>${project.version}</version>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.activiti.karaf.bpmn.webui</groupId>
+      <artifactId>bpmn-webui-editor</artifactId>
+      <version>${project.version}</version>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.activiti.karaf.bpmn.webui</groupId>
+      <artifactId>bpmn-webui-js-api</artifactId>
+      <version>${project.version}</version>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.activiti.karaf.bpmn.webui</groupId>
+      <artifactId>bpmn-webui-js-libs</artifactId>
+      <version>${project.version}</version>
+      <type>war</type>
+    </dependency>
   </dependencies>
 
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>unpack-dependent-wars</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>org.activiti.karaf.bpmn.webui</groupId>
+                  <artifactId>bpmn-webui-config</artifactId>
+                  <version>${webui-version}</version>
+                  <classifier>${webui-config}</classifier>
+                  <type>zip</type>
+                  <overWrite>true</overWrite>
+                  <outputDirectory>${webui.build.configDir}</outputDirectory>
+                </artifactItem>              
+                <artifactItem>
+                  <groupId>org.activiti.karaf.bpmn.webui</groupId>
+                  <artifactId>bpmn-webui-explorer</artifactId>
+                  <type>war</type>
+                  <overWrite>true</overWrite>
+                  <outputDirectory>${webui.build.explorerDir}</outputDirectory>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <!-- TODO: convert this to maven using yui plugin -->
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>com.signavio.editor.ant.build</id>
+            <phase>generate-resources</phase>
+            <configuration>
+              <target name="com.signavio.webui.ant.build">
+                <property name="my_plugin_classpath" refid="maven.plugin.classpath" />
+                <mkdir dir="${webui.build.tmpDir}" />
+                <mkdir dir="${webui.build.warDir}" />
+                <!-- copy configuration -->
+                <copy file="${webui.build.configDir}/editor/plugins.xml" tofile="${webui.build.warDir}/WEB-INF/xml/editor/plugins.xml"
+                  overwrite="true" />
+                <copy file="${webui.build.configDir}/editor/stencilsets.json" tofile="${webui.build.warDir}/WEB-INF/json/stencilsets.json"
+                  overwrite="true" />
+                <copy file="${webui.build.configDir}/editor/extensions.json" tofile="${webui.build.warDir}/WEB-INF/json/extensions.json"
+                  overwrite="true" />
+                <!-- update explorer for all in one war path -->
+                <echo message="building com.signavio.explorer.js.concat" />
+                <concat destfile='${webui.build.warDir}/explorer/explorer.js'>
+                  <filelist id="explorer-js" dir="${webui.build.explorerDir}">
+                    <file name='explorer.js' />
+                  </filelist>
+                  <filelist id="init-explorer-js" dir="${webui.build.configDir}">
+                    <file name='init-explorer.js' />
+                  </filelist>
+                </concat>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
@@ -188,7 +292,7 @@
             <supportedProjectType>war</supportedProjectType>
           </supportedProjectTypes>
           <instructions>
-            <Webapp-Context>activiti-modeler</Webapp-Context>
+            <Webapp-Context>${webui-webapp-context}</Webapp-Context>
             <Bundle-ClassPath>.,WEB-INF/classes</Bundle-ClassPath>
             <Embed-Directory>WEB-INF/lib</Embed-Directory>
             <Embed-Transitive>true</Embed-Transitive>
@@ -196,6 +300,7 @@
           </instructions>
         </configuration>
       </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
@@ -205,6 +310,41 @@
           </archive>
           <packagingExcludes>WEB-INF/lib/*</packagingExcludes>
           <overlays>
+            <overlay>
+              <id>overlay-js-api</id>
+              <groupId>org.activiti.karaf.bpmn.webui</groupId>
+              <artifactId>bpmn-webui-js-api</artifactId> 
+              <excludes>
+                <exclude>WEB-INF/*</exclude>
+              </excludes>
+            </overlay>       
+            <overlay>
+              <id>overlay-js-libs</id>
+              <groupId>org.activiti.karaf.bpmn.webui</groupId>
+              <artifactId>bpmn-webui-js-libs</artifactId> 
+              <excludes>
+                <exclude>WEB-INF/*</exclude>
+              </excludes>
+            </overlay>                  
+            <overlay>
+              <id>overlay-editor</id>
+              <groupId>org.activiti.karaf.bpmn.webui</groupId>
+              <artifactId>bpmn-webui-editor</artifactId> 
+              <targetPath>editor</targetPath>           
+              <excludes>
+                <exclude>WEB-INF/*</exclude>
+              </excludes>
+            </overlay>
+            <overlay>
+              <id>overlay-explorer</id>
+              <groupId>org.activiti.karaf.bpmn.webui</groupId>
+              <artifactId>bpmn-webui-explorer</artifactId> 
+              <targetPath>explorer</targetPath>           
+              <excludes>
+                <exclude>WEB-INF/*</exclude>
+                <exclude>explorer.js</exclude>
+              </excludes>
+            </overlay>            
             <overlay>
               <excludes>
                 <exclude>WEB-INF/lib/*</exclude>

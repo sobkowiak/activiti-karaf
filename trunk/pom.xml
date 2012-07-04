@@ -41,6 +41,7 @@
     
 	<modules>
 		<module>activiti-karaf-parent</module>
+        <module>bpmn-webui-components</module>
 		<module>activiti-karaf-support</module>
 		<module>activiti-karaf-commands</module>
 		<module>activiti-bpmn-archetype</module>

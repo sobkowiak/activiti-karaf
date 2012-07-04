@@ -47,7 +47,8 @@
     </activiti.osgi.import.pkg>
     <activiti.osgi.dynamic>*</activiti.osgi.dynamic>
     <activiti.osgi.export.pkg>
-      de.hpi.bpmn2_0.*
+      de.hpi.bpmn2_0.*,
+      de.hpi.diagram.*
     </activiti.osgi.export.pkg>
     <activiti.osgi.private.pkg>
     </activiti.osgi.private.pkg>
