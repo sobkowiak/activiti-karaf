@@ -87,11 +87,18 @@
             <version>${spring.version}</version>
             <scope>provided</scope>
         </dependency>
+        <!--  
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.mybatis</artifactId>
 			<version>${mybatis.version}</version>
 		</dependency>
+        -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>    
 		<!-- <dependency> <groupId>org.apache.servicemix.bundles</groupId> <artifactId>org.apache.servicemix.bundles.groovy</artifactId> 
 			<version>${groovy.version}</version> </dependency> -->
 		<dependency>
