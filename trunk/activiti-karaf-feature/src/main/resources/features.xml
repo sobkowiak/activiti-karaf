@@ -34,8 +34,13 @@
 		<bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.asm/${asm.version}</bundle>
 		<bundle>mvn:org.codehaus.groovy/groovy/${groovy.version}</bundle>
 		<bundle>mvn:com.h2database/h2/${h2.version}</bundle>
-		<bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.mybatis/${mybatis.version}</bundle>
-		<bundle>mvn:org.drools/drools-api/${drools.version}</bundle>
+		<!--   <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.mybatis/${mybatis.version}</bundle> -->
+        <bundle>mvn:org.mybatis/mybatis/${mybatis.version}</bundle>
+        <bundle>mvn:org.drools/knowledge-api/${drools.version}</bundle>
+        <!-- 
+		<bundle>mvn:org.drools/drools-core/${drools.version}</bundle>
+        <bundle>mvn:org.drools/drools-compiler/${drools.version}</bundle>
+        -->
         <!-- above are the activiti engine deps -->		
 		<bundle>mvn:org.activiti/activiti-engine/${activiti.version}</bundle>
 		<bundle>wrap:mvn:org.activiti/activiti-spring/${activiti.version}</bundle>

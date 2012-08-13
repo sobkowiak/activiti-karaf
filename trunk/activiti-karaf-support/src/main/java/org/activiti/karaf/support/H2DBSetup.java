@@ -47,7 +47,7 @@ public class H2DBSetup {
 
     private String[] getOptions() {
         // TODO: externalize these options
-        String[] options = { "-tcp", "-tcpAllowOthers", "true", "-tcpPort",
+        String[] options = { "-tcp", "-tcpAllowOthers", "-tcpPort",
                 this.tcpPort };
         return options;
     }
